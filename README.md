@@ -1,47 +1,35 @@
-# CoinMarketCap API Client
+# Binance API Client
 
-A Go client for the [CoinMarketCap API](https://coinmarketcap.com/api/documentation/v1/#section/Quick-Start-Guide)
-
-The CoinMarketCap API is a suite of high-performance RESTful JSON endpoints that are specifically designed to meet the mission-critical demands of application developers, data scientists, and enterprise business platforms.
+A Go client for the [Binance API](https://binance-docs.github.io/apidocs/spot/en/#introduction)
 
 ### Install
 
 ```shell
-go get github.com/d3code/cmc-client-go
+go get github.com/d3code/binance-client-go
 ```
 
 ### Import
 
 ```go
 import (
-    "github.com/d3code/cmc-client-go/cmc"
+    "github.com/d3code/binance-client-go/binance"
 )
 ```
 
 ## Client
 
-To use the client, create a CMC Client.
+To use the client, create a Binance Client.
 
 ```go
 package main
 
 import (
-    "github.com/d3code/cmc-client-go/cmc"
+    "github.com/d3code/binance-client-go/binance"
 )
 
 func main() {
-    client := cmc.Client("<your-api-key>")
+    client := binance.Client("<your-api-key>", "<your-api-secret>")
 }
-```
-
-### Testing
-
-To use the CMC sandbox environment, call `Test(true)` on the client. This will replace the API Key and the Base URL for the requests to use the sandbox environment.
-
-You do not need to provide your API Key, though this can be provided and calling `Test(false)` will revert to using the supplied API Key and the production CMC environment.
-
-```go
-cmc.Client("").Test(true)
 ```
 
 ### Logging
@@ -51,5 +39,5 @@ There is no logging in this library, an `error` is returned if there are request
 To print the raw response, call `PrintResponse(true)` on the client.
 
 ```go
-cmc.Client("").PrintResponse(true)
+binance.Client("").PrintResponse(true)
 ```
